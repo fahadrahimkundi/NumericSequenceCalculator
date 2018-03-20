@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "Numeric Sequencer";
+}
+
+<form method="post" action="/Home/NumericSequencer">
+
+    <div class="row">
+        <div class="col-md-3">
+            <h2>Enter Number</h2>
+            <p><input class="form-control" type="number" min="0" placeholder="Sequence Number" name="sequenceNumber" id="sequenceNumber" value="@ViewBag.sequenceNumber" required /></p>
+        </div>
+    </div>
+
+    @if (!string.IsNullOrEmpty(@ViewBag.Message))
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Server Message</h2>
+                <p class="btn btn-default">@ViewBag.Message</p>
+            </div>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-md-12">
+            <input class="btn btn-default" type="submit" value="Go" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <h2>All Number(s)</h2>
+            <ul class="list-group">
+
+                @if (ViewBag.AllNumbersequence != null)
+                {
+                    foreach (var number in ViewBag.AllNumbersequence)
+                    {
+                        <li class="list-group-item">@number</li>
+                    }
+                }
+            </ul>
+        </div>
+        <div class="col-md-3">
+            <h2>Odd Number(s)</h2>
+            <ul class="list-group">
+
+                @if (ViewBag.OddNumbersequence != null)
+                {
+                    foreach (var element in ViewBag.OddNumbersequence)
+                    {
+                        <li class="list-group-item">@element</li>
+                    }
+                }
+            </ul>
+        </div>
+        <div class="col-md-3">
+            <h2>Even Number(s)</h2>
+            <ul class="list-group">
+
+                @if (ViewBag.EvenNumbersequence != null)
+                {
+                    foreach (var element in ViewBag.EvenNumbersequence)
+                    {
+                        <li class="list-group-item">@element</li>
+                    }
+                }
+            </ul>
+        </div>
+        <div class="col-md-3">
+            <h2>Special Case(s)</h2>
+            <ul class="list-group">
+
+                @if (ViewBag.SpecialNumbersequence != null)
+                {
+                    foreach (var element in ViewBag.SpecialNumbersequence)
+                    {
+                        <li class="list-group-item">@element</li>
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+</form>
